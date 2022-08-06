@@ -44,7 +44,6 @@ After runing golang code you will have sh-script which you could run for configu
 | go           | v1.18        | 
 | OS           | RHEL7        |
 
-
 ##### To run code use command: go run main.go
 ##### To build code use command: go build
 
