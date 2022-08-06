@@ -1,16 +1,14 @@
-### This is technical task for job interview
+## This is technical task for job interview
 
 
-#### Technical task:
-
+### Technical task:
+```
 Create a utility to process YAML-file and output an /etc/fstab file based on that yaml.
-
 The tasks must run on a Linux system.
-
 Use a programming/scripting language to achieve this task, and not Ansible or such.
+```
 
-
-#### Code description:
+### Code description:
 
 The code is written in GoLang.
 
@@ -34,21 +32,24 @@ Also documentation: https://linuxconfig.org/how-to-tune-linux-extended-ext-files
 After runing golang code you will have sh-script which you could run for configure fs
 
 
-#### Input data: fstab.yml
-#### Output data: fstab, tune2fs.sh
+### Input data: 
+fstab.yml
+
+### Output data: 
+fstab, tune2fs.sh
 
 
-#### Requirements:
+### Requirements:
 | Soft         | Version      | 
 | -------------|:-------------| 
 | go           | v1.18        | 
 | OS           | RHEL7        |
 
-##### To run code use command: go run main.go
-##### To build code use command: go build
+#### To run code use command: go run main.go
+#### To build code use command: go build
 
 
-#### General information
+### General information
 
 Example fstab for rhel os
 
@@ -61,29 +62,28 @@ UUID=64351209-b3d4-421d-8900-7d940ca56fea     /boot                   xfs     de
 
 The table itself is a 6 column structure, where each column designates a specific parameter and must be set up in the correct order. The columns of the table are as follows from left to right: 
 
+1. Device: usually the given name or UUID of the mounted device (sda1/sda2/etc).
 
-Device: usually the given name or UUID of the mounted device (sda1/sda2/etc).
+2. Mount Point: designates the directory where the device is/will be mounted. 
 
-Mount Point: designates the directory where the device is/will be mounted. 
+3. File System Type: nothing trick here, shows the type of filesystem in use. 
 
-File System Type: nothing trick here, shows the type of filesystem in use. 
+4. Options: lists any active mount options. If using multiple options they must be separated by commas. 
 
-Options: lists any active mount options. If using multiple options they must be separated by commas. 
+5. Backup Operation: (the first digit) this is a binary system where 1 = dump utility backup of a partition. 0 = no backup. This is an outdated backup method and should NOT be used. 
 
-Backup Operation: (the first digit) this is a binary system where 1 = dump utility backup of a partition. 0 = no backup. This is an outdated backup method and should NOT be used. 
-
-File System Check Order: (second digit) Here we can see three possible outcomes.  0 means that fsck will not check the filesystem. Numbers higher than this represent the check order. The root filesystem should be set to 1 and other partitions set to 2. 
+6. File System Check Order: (second digit) Here we can see three possible outcomes.  0 means that fsck will not check the filesystem. Numbers higher than this represent the check order. The root filesystem should be set to 1 and other partitions set to 2. 
 
 
-Alternative ways to refer to partitions:
+#### Alternative ways to refer to partitions:
 
 
 Network ID
 
-Samba : //server/share
+* Samba : //server/share
 
-NFS : server:/share
+* NFS : server:/share
 
-SSHFS : sshfs#user@server:/share
+* SSHFS : sshfs#user@server:/share
 
-Device : /dev/sdxy (not recommended)
+* Device : /dev/sdxy (not recommended)
