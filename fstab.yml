@@ -1,0 +1,30 @@
+fstab:
+  /dev/vda1:
+    mount: /boot
+    type: ext4
+    fs-check-order: 2
+  /dev/mapper/rootvg-lvroot:
+    mount: /
+    type: ext4
+    fs-check-order: 1
+  /dev/mapper/rootvg-lvopt:
+    mount: /opt
+    type: ext4
+    fs-check-order: 2
+  /dev/mapper/rootvg-lvswap:
+    mount: swap
+    type: swap
+    fs-check-order: 5
+  /dev/sdb1:
+    mount: /var/lib/postgresql
+    type: ext4
+    root-reserve: 10%
+    fs-check-order: 2
+  192.168.4.5:
+    mount: /home
+    export: /var/nfs/home
+    type: nfs
+    options:
+      - noexec
+      - nosuid
+    fs-check-order: 0
