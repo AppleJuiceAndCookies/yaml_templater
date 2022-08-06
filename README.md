@@ -24,8 +24,9 @@ Input data: fstab.yml
 Output data: fstab, tune2fs.sh
 
 Requirements:
-| `go` | `v1.18` |
-| `gopkg.in/yaml.v3` | `v3.0.0` |
+
+go	v1.18
+gopkg.in/yaml.v3  v3.0.0
 
 To run code use command: go run main.go
 To build code use command: go build
